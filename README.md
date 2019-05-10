@@ -1,6 +1,6 @@
 # LandMonkClient
 
-## Instructions
+## Installation
 
 ```js
 npm install

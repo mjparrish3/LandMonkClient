@@ -5,7 +5,7 @@ import * as errorHandlerActions from '../../../store/actions/errorHandlerActions
 import SuccessModal from '../../../components/Modals/SuccessModal/SuccessModal';
 import ErrorModal from '../../../components/Modals/ErrorModal/ErrorModal';
 import Logo from '../../../img/LandMonk-Logo---transparent-bkg---215x218.jpg'
-import Property from '../../../components/PropertyComponents/Property/Property'
+
 
 
 class CreateUnit extends Component {
@@ -22,7 +22,7 @@ class CreateUnit extends Component {
     handleChangeEvent = event => {
         const updatedUnitForm = { ...this.state.unitForm };
         updatedUnitForm[event.target.id] = event.target.value;
-
+    
         this.setState(
             {
                 unitForm: updatedUnitForm
@@ -33,6 +33,7 @@ class CreateUnit extends Component {
     createUnit = event => {
         event.preventDefault();
 
+      
         const unitToCreate = {
             unitName: this.state.unitForm.unitName,
             bedroomCount: parseInt(this.state.unitForm.bedroomCount),
@@ -41,7 +42,6 @@ class CreateUnit extends Component {
             propertyId: parseInt(this.props.match.params.id)
         }
 
-        console.log(unitToCreate);
 
         const url = '/api/units'
         this.props.onCreateUnit(url, unitToCreate, { ...this.props });
@@ -54,7 +54,6 @@ class CreateUnit extends Component {
                 <div className="container-fluid">
                     <div className="row">
                         <div className="col-12">
-                        {/* <Property property={property} {...this.props} /> */}
                             <div className="page-title-box">
                                 <h4 className="page-title">Add a Unit</h4>
                             </div>
@@ -101,7 +100,8 @@ class CreateUnit extends Component {
                         modalHeaderText={'Success!'}
                         modalBodyText={'New unit created'}
                         okButtonText={'OK'}
-                        successClick={() => this.props.onCloseSuccessModal(`{/properties/${this.props.match.params.id}}`, { ...this.props })} />
+                        successClick={() => this.props.onCloseSuccessModal('/propertyDetails/'+ this.props.match.params.id, { ...this.props })} />
+                        {console.log(this.props.match.params.id)}
 
                     <ErrorModal show={this.props.showErrorModal}
                         modalHeaderText={'Error message'}
@@ -132,3 +132,5 @@ const mapDispatchToProps = (dispatch) => {
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(CreateUnit);
+
+// successClick={() => this.props.onCloseSuccessModal(`{/properties/${this.props.match.params.id}}`, { ...this.props })} />

@@ -4,6 +4,8 @@ import { Modal, Button } from 'react-bootstrap';
 import '../ModalStyles.css';
  
 const successModal = (props) => {
+
+ 
     return (
         <Aux>
             <Modal show={props.show} backdrop='static'>

@@ -27,7 +27,7 @@ class PropertyDetails extends Component {
                                 <div className="page-title-box">
                                     <div className="page-title-right">
                                         <Link to='/createProperty'>
-                                            <button className="btn btn-primary">Add Property</button>
+                                            <button className="btn btn-primary add-property">Add Property</button>
                                         </Link>
                                     </div>
                                     <h4 className="page-title">Property Details</h4>
@@ -36,10 +36,10 @@ class PropertyDetails extends Component {
                         </div>
                         {/* <!-- end page title --> */}
                         <Property property={property} {...this.props} />
-                        <Link className="btn btn-primary" to={`/propertyDetails/${this.props.match.params.id}/createUnit`}>
+                        <Link className="btn btn-primary  add-unit" to={`/propertyDetails/${this.props.match.params.id}/createUnit`}>
                             Add Unit
                         </Link>
-                        <PropertyUnits units={property.units} />
+                        <PropertyUnits units={property.units} history={this.props.history} />
                     </div>
                 </div>
             </Aux>

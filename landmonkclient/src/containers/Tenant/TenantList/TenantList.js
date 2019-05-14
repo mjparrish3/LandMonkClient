@@ -222,7 +222,7 @@ class TenantList extends Component {
                                             <tr>
                                                 <th style={{cursor: 'pointer'}} className="firstName" title="Toggle First Name Alphabetically, Ascending or Decending" onClick={this.sortFirstName}>First Name</th>
                                                 <th style={{cursor: 'pointer'}} title="Toggle Last Name Alphabetically, Ascending or Decending" onClick={this.sortLastName}>Last Name</th>
-                                                <th style={{cursor: 'pointer'}} title="Toggle Last Name Alphabetically, Ascending or Decending" onClick={this.sortEmailAddress}>Email</th>
+                                                <th style={{cursor: 'pointer'}} title="Toggle Email List Alphabetically, Ascending or Decending" onClick={this.sortEmailAddress}>Email</th>
                                                 <th>Cell Phone</th>
                                             </tr>
                                         </thead>
